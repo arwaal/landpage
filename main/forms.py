@@ -28,9 +28,9 @@ class KuwaitiMobile(forms.Field):
 
 
 class UserSignup(forms.Form):
-    first_name = forms.CharField(max_length=255, required=True)
-    last_name = forms.CharField(max_length=255, required=True)
-    mobile = KuwaitiMobile(required=True, help_text='enter your 8 digits number')
+    # first_name = forms.CharField(max_length=255, required=True)
+    # last_name = forms.CharField(max_length=255, required=True)
+    # mobile = KuwaitiMobile(required=True, help_text='enter your 8 digits number')
     # gender = forms.ChoiceField(choices=Users.GENDER_TYPE, required=True)
     # date_of_birth = forms.DateField(widget=extras.SelectDateWidget(years=range(2000,1920,-1)), required=True)
     # password = forms.CharField(widget=forms.PasswordInput(), required=True)

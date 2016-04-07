@@ -12,15 +12,15 @@ class Landpage(models.Model):
 
 class Users(models.Model):
     # reg_user = models.OneToOneField(User)
-    first_name = models.CharField(max_length=250, null=True, blank=True)
-    last_name = models.CharField(max_length=250, null=True, blank=True)
-    mobile = models.CharField(max_length=255, null=True, blank=True)
-    date_of_birth = models.DateField(blank=True, null=True)
+    # first_name = models.CharField(max_length=250, null=True, blank=True)
+    # last_name = models.CharField(max_length=250, null=True, blank=True)
+    # mobile = models.CharField(max_length=255, null=True, blank=True)
+    # date_of_birth = models.DateField(blank=True, null=True)
     email = models.CharField(null=True, blank=True, max_length=255)
-    MALE = 'male'
-    FEMALE = 'female'
-    GENDER_TYPE = ((MALE, 'male'), (FEMALE, 'female'))
-    gender = models.CharField(max_length=255, choices=GENDER_TYPE, default=MALE, null=True, blank=True)
+    # MALE = 'male'
+    # FEMALE = 'female'
+    # GENDER_TYPE = ((MALE, 'male'), (FEMALE, 'female'))
+    # gender = models.CharField(max_length=255, choices=GENDER_TYPE, default=MALE, null=True, blank=True)
 
     def __unicode__(self):
-        return unicode(self.first_name)
+        return unicode(self.email)

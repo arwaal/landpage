@@ -14,6 +14,15 @@ def home_view(request):
     trial = Landpage.objects.all()
     context = {}
     context['trial'] = trial
+    form = UserSignup()
+    context['form'] = form
+    if request.method == 'GET':
+        form = UserSignup(request.GET)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            user, created = Users.objects.get_or_create(email=email)
+            user.save()
+            return HttpResponse('Thank You')
     return render(request, 'landpage.html', context)
 
 def signup(request):
@@ -24,9 +33,9 @@ def signup(request):
         form = UserSignup(request.POST)
         context['form'] = form
         if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            mobile = form.cleaned_data['mobile']
+            # first_name = form.cleaned_data['first_name']
+            # last_name = form.cleaned_data['last_name']
+            # mobile = form.cleaned_data['mobile']
             # gender = form.cleaned_data['gender']
             # date_of_birth = form.cleaned_data['date_of_birth']
             # password = form.cleaned_data['password']
@@ -34,7 +43,7 @@ def signup(request):
             # the_user = User.objects.create_user(first_name, last_name, email)
             # the_user.last_name = last_name
             # the_user.save()
-            regular_user, created = Users.objects.get_or_create(first_name=first_name, last_name=last_name, mobile=mobile, email=email)
+            regular_user, created = Users.objects.get_or_create(email=email)
             regular_user.save()
             return HttpResponse ('Thank You! We Will Contact You Soon')
 
